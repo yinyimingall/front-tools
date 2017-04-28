@@ -68,24 +68,23 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-//Greet.js
-module.exports = function() {
-  var greet = document.createElement('div');
-  greet.textContent = "the webpack is worked. this message from Greet.js.";
-  return greet;
-}
-
+"use strict";
+eval("\n\n//Greet.js\nvar msg = __webpack_require__(2);\nmodule.exports = function () {\n  var greet = document.createElement('div');\n  greet.textContent = \"the webpack is worked. this message from Greet.js. Oh.......\" + msg.greetText;\n  return greet;\n};//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvR3JlZXQuanM/NzhhZSJdLCJuYW1lcyI6WyJtc2ciLCJyZXF1aXJlIiwibW9kdWxlIiwiZXhwb3J0cyIsImdyZWV0IiwiZG9jdW1lbnQiLCJjcmVhdGVFbGVtZW50IiwidGV4dENvbnRlbnQiLCJncmVldFRleHQiXSwibWFwcGluZ3MiOiI7O0FBQUE7QUFDQSxJQUFJQSxNQUFNLG1CQUFBQyxDQUFRLENBQVIsQ0FBVjtBQUNBQyxPQUFPQyxPQUFQLEdBQWlCLFlBQVc7QUFDMUIsTUFBSUMsUUFBUUMsU0FBU0MsYUFBVCxDQUF1QixLQUF2QixDQUFaO0FBQ0FGLFFBQU1HLFdBQU4sR0FBb0IsaUVBQWlFUCxJQUFJUSxTQUF6RjtBQUNBLFNBQU9KLEtBQVA7QUFDRCxDQUpEIiwiZmlsZSI6IjAuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvL0dyZWV0LmpzXHJcbnZhciBtc2cgPSByZXF1aXJlKCcuL21zZy5qc29uJyk7XHJcbm1vZHVsZS5leHBvcnRzID0gZnVuY3Rpb24oKSB7XHJcbiAgdmFyIGdyZWV0ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7XHJcbiAgZ3JlZXQudGV4dENvbnRlbnQgPSBcInRoZSB3ZWJwYWNrIGlzIHdvcmtlZC4gdGhpcyBtZXNzYWdlIGZyb20gR3JlZXQuanMuIE9oLi4uLi4uLlwiICsgbXNnLmdyZWV0VGV4dDtcclxuICByZXR1cm4gZ3JlZXQ7XHJcbn1cclxuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIC4vYXBwL0dyZWV0LmpzIl0sInNvdXJjZVJvb3QiOiIifQ==");
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-//main.js
-var greet = __webpack_require__(0);
-document.getElementById('root').appendChild(greet());
+"use strict";
+eval("\n\n//main.js\nvar greet = __webpack_require__(0);\ndocument.getElementById('root').appendChild(greet());//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvbWFpbi5qcz82YTRiIl0sIm5hbWVzIjpbImdyZWV0IiwicmVxdWlyZSIsImRvY3VtZW50IiwiZ2V0RWxlbWVudEJ5SWQiLCJhcHBlbmRDaGlsZCJdLCJtYXBwaW5ncyI6Ijs7QUFBQTtBQUNBLElBQUlBLFFBQVEsbUJBQUFDLENBQVEsQ0FBUixDQUFaO0FBQ0FDLFNBQVNDLGNBQVQsQ0FBd0IsTUFBeEIsRUFBZ0NDLFdBQWhDLENBQTRDSixPQUE1QyIsImZpbGUiOiIxLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy9tYWluLmpzXHJcbnZhciBncmVldCA9IHJlcXVpcmUoJy4vR3JlZXQuanMnKTtcclxuZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Jvb3QnKS5hcHBlbmRDaGlsZChncmVldCgpKTtcclxuXG5cblxuLy8gV0VCUEFDSyBGT09URVIgLy9cbi8vIC4vYXBwL21haW4uanMiXSwic291cmNlUm9vdCI6IiJ9");
 
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+eval("module.exports = {\n\t\"greetText\": \"this message from msg.json. json-loader worded\"\n};//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvbXNnLmpzb24/YWJiZCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0EiLCJmaWxlIjoiMi5qcyIsInNvdXJjZXNDb250ZW50IjpbIm1vZHVsZS5leHBvcnRzID0ge1xuXHRcImdyZWV0VGV4dFwiOiBcInRoaXMgbWVzc2FnZSBmcm9tIG1zZy5qc29uLiBqc29uLWxvYWRlciB3b3JkZWRcIlxufTtcblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyAuL2FwcC9tc2cuanNvblxuLy8gbW9kdWxlIGlkID0gMlxuLy8gbW9kdWxlIGNodW5rcyA9IDAiXSwic291cmNlUm9vdCI6IiJ9");
 
 /***/ })
 /******/ ]);
