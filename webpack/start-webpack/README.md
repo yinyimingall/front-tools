@@ -20,6 +20,8 @@ module.exports = {
   }
 }
 ```
+main.js是webpack的入口文件。webpack会分析这个入口文件，解析其中包含的依赖关系的各个文件，这些文件（指模块）通过webpack都打包到bundle.js。webpack给每个模块分配唯一id，通过id索引访问模块。页面启动时会先执行main.js中的代码，其他模块在运行require时再执行。
+
     $ webpack
     //生成bundle.js
 
@@ -41,7 +43,7 @@ npm的`start`是一个特殊的脚本名称。可使用`npm start`执行脚本�
 devtool选项：`source-map`、`cheap-module-source-map`、`eval-source-map`、`cheap-module-eval-source-map`依次构建速度加快
 
 ## webpack构建本地服务器
-可监听文件修改，并自动刷新。需要安装`webpack-dev-server`
+可监听文件修改，并自动刷新。需要安装`webpack-dev-server`。这将默认在本地`localhost:8080`上启动一个express静态资源web服务器并且会以监听模式运行webpack。这是通过socket.io服务实时监听变化并及时刷新的。
 
 package.json
 
@@ -67,8 +69,8 @@ laoders配置项
 
 引入msg.json中的数据
 
-webpack.config.js中的配置
 ```js
+// webpack.config.js
 module: {
   loaders: [
     {
@@ -82,8 +84,8 @@ module: {
 ## 用babel写es6
     $ npm install babel-core babel-loader babel-preset-es2015
 
-webpack.config.js中的配置
 ```js
+// webpack.config.js
 {
   test: /\.js$/,
   exclude: /node_modules/,
@@ -96,4 +98,74 @@ webpack.config.js中的配置
 es6 is elegant.
 
 ### 关于babel
-babel的配置项可在webpack.config.js中配置
+babel的配置项可在webpack.config.js中配置,也可写到`.babelrc`文件中
+
+## 处理CSS
+```js
+// webpack.config.js
+{
+  test: /\.css$/,
+  loader: 'style-loader!css-loader?modules' // !作用是使同一文件可以使用不同的loader, !作用是使用css modules
+}
+```
+这里`?modules`是指使用css modules一个组件css样式只用于对应组件
+
+    require('./main.css');
+
+在相应的js文件中导入css
+
+### css预处理
+* `less-loader`
+* `sass-loader`
+* `stylus-loader`
+
+css处理平台postcss
+
+* `postcss-loader`
+* `autoprefixer`
+
+    npm i postcss-loader autoprefixer --save-dev
+
+```js
+module: {
+  laoders: [
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader!postcss'
+      }
+  ],
+  postcss: [
+    require('autoprefixer') //引入插件
+  ]
+}
+```
+
+## 插件
+插件用来完成loader不能完成的工作。webpack内置了一些常用的插件
+
+通过如下配置使用内置插件，第三方需要`npm install`
+```js
+// webpack.config.js
+var webpack = require('webpack')
+
+module: {
+  plugins: [
+    new webpack.BannerPlugin('this file si created by Martin Yin')
+  ]
+}
+```
+bundle.js顶部中出现了我们写的信息
+
+`UglifyJsPlugin` 内置插件，压缩js代码
+```js
+plugins: [
+  new webpack.BannerPlugin('this file si created by Martin Yin'),
+  new webpack.optimize.UglifyJsPlugin()
+]
+```
+再次查看bundle.js代码被压缩
+
+# 参考
+* [入门Webpack，看这篇就够了](http://www.jianshu.com/p/42e11515c10f)
+
+* [Webpack 中文指南](http://zhaoda.net/webpack-handbook/index.html)
