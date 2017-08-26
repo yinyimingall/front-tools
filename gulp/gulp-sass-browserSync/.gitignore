@@ -1,0 +1,9 @@
+### dist dictionary ###
+dist/
+
+### node ###
+node_modules
+
+### Sass ###
+.sass-cache/
+*.css.map

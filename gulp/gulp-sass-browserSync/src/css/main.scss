@@ -1,0 +1,16 @@
+@import '_normalize.scss';
+
+.about {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #A4A41C;
+    &__title {
+        width: 60%;
+        margin: auto;
+        padding-top: 240px;
+        text-align: center;
+        font-size: 42px;
+        color: #64229F;
+    }
+}
